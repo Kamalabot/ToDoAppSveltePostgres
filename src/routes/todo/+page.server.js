@@ -10,3 +10,4 @@ export const load = async({locals}) =>{
 		dbReturn: result
 	}
 }
+

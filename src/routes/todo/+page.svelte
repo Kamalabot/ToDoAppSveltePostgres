@@ -1,4 +1,5 @@
 <script>
+	import TodoList from "$lib/TodoList.svelte"
 	export let data;
 	console.log(data)
 </script>
@@ -21,5 +22,7 @@
         </div>
        </div>
     </div>
+	  <TodoList dbData={data.dbReturn}/>
   </div>
 </div>
+
