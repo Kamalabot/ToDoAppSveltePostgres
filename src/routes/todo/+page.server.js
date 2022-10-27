@@ -1,16 +1,12 @@
-import pool from "$lib/db"
 import {serializeNonPOJOs} from "$lib/helpers"
 
-export const load = async() =>{
+export const load = async({locals}) =>{
 	
-	try{
-		const allDo = await pool.query("SELECT * FROM todo")
-		console.log(serializeNonPOJOs(allDo))
-	} catch(err){
-		console.error(err)
-		return{
-			error:true,
-			message:err
-		}
+	const {sql} = locals;
+	
+	const result = sql`SELECT * FROM todo`;
+	
+	return {
+		dbReturn: result
 	}
 }
