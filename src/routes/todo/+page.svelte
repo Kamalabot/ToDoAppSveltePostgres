@@ -1,3 +1,8 @@
+<script>
+	export let data;
+	console.log(data)
+</script>
+
 <div class="min-h-screen bg-base-200">
   <div class="hero-content flex-col">
     <div class="text-center lg:text-left">
