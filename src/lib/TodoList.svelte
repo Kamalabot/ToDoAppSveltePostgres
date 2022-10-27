@@ -1,6 +1,6 @@
 <script>
 	export let dbData;
-	console.log(dbData,'recd')
+	//console.log(dbData,'recd')
 </script>
 
 
@@ -9,9 +9,9 @@
     <!-- head -->
     <thead>
       <tr>
-        <th></th>
         <th>ID</th>
         <th>Description</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -26,10 +26,16 @@
 						{line.description}
 					</td>
 					<th>
+						<div class="flex gap-3">
 						<form method="POST" action="?/delete">
 							<input type="hidden" name="id" hidden value={line.todo_id} />
 							<button class="btn btn-error text-white btn-xs">Delete</button>
 						</form>
+						<form method="POST" action="?/edit">
+							<input type="hidden" name="id" hidden value={line.todo_id} />
+							<button class="btn btn-error text-white btn-xs">Edit</button>
+						</form>
+						</div>
 					</th>
 				</tr>
 			{/each}
