@@ -50,7 +50,7 @@ export const actions = {
 		const userEdit = Object.fromEntries([...formData]);
 		const todoId = userEdit.todo_id;
 		const newDesc = userEdit.todo;
-		
+		console.log(userEdit)
 		const {sql} = locals;
 		
 		try {
