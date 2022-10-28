@@ -4,6 +4,8 @@ export const load = async({locals}) =>{
 	
 	const {sql} = locals;
 	
+	const createTable = await sql`CREATE TABLE todo( todo_id BIGSERIAL PRIMARY KEY NOT NULL,description VARCHAR(255));`;
+	
 	const result = sql`SELECT * FROM todo`;
 	
 	return {
