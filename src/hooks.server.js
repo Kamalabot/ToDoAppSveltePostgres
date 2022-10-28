@@ -1,8 +1,12 @@
 import postgres from "postgres";
 
 export const handle = async({event, resolve}) =>{
-	const sql = postgres('postgres://postgres:1234@172.17.0.2:5432/todoapp');
-	
+	postgresql://
+	const sql = postgres('vercel:JPiomQU2AI-CJf96LJm4pw@free-tier14.aws-us-east-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&options=--cluster%3Dcavern-pika-6213');
+	const createTable = sql`CREATE TABLE todo( 
+									todo_id BIGSERIAL PRIMARY KEY NOT NULL,
+									description VARCHAR(255)
+									);`
 	event.locals = {
 		sql:sql
 	};
