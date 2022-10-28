@@ -30,8 +30,19 @@ export const actions = {
 	},
 	
 	delete: async({locals, request})=>{
-		const formData = await request.formData()
-		console.log(formData)
+		const formData = await request.formData();
+		let idDel = Object.fromEntries([...formData]);
+		const {sql} = locals;
+		
+		try {
+			const delTask = await sql`DELETE FROM todo WHERE todo_id = ${idDel.id};`
+		}catch(err){
+			console.log(err)
+			return {
+				error:true,
+				message:err
+			}
+		}
 	},
 
 	edit: async({locals, request})=>{
