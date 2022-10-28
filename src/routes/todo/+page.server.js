@@ -47,6 +47,20 @@ export const actions = {
 
 	edit: async({locals, request})=>{
 		const formData = await request.formData()
-		console.log(formData)
+		const userEdit = Object.fromEntries([...formData]);
+		const todoId = userEdit.todo_id;
+		const newDesc = userEdit.todo;
+		
+		const {sql} = locals;
+		
+		try {
+			const updTask = await sql`UPDATE todo SET description=${newDesc} WHERE todo_id=${todoId};`
+		}catch(err){
+			console.log(err)
+			return{
+				error:true,
+				message:err
+			}
+		}
 	}
 }
