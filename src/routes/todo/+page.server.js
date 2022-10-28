@@ -4,7 +4,7 @@ export const load = async({locals}) =>{
 	
 	const {sql} = locals;
 	
-	const result = sql`SELECT * FROM todo`;
+	const result = sql`SELECT * FROM public.todo`;
 	
 	return {
 		dbReturn: result
@@ -19,7 +19,7 @@ export const actions = {
 		console.log(taskNew.task);
 		const {sql} = locals;
 		try{
-			const addTask = await sql`INSERT INTO todo (description) values (${taskNew.task});`
+			const addTask = await sql`INSERT INTO public.todo (description) values (${taskNew.task});`
 			} catch (err){
 				console.log(err);
 				return{
@@ -35,7 +35,7 @@ export const actions = {
 		const {sql} = locals;
 		
 		try {
-			const delTask = await sql`DELETE FROM todo WHERE todo_id = ${idDel.id};`
+			const delTask = await sql`DELETE FROM public.todo WHERE todo_id = ${idDel.id};`
 		}catch(err){
 			console.log(err)
 			return {
@@ -54,7 +54,7 @@ export const actions = {
 		const {sql} = locals;
 		
 		try {
-			const updTask = await sql`UPDATE todo SET description=${newDesc} WHERE todo_id=${todoId};`
+			const updTask = await sql`UPDATE public.todo SET description=${newDesc} WHERE todo_id=${todoId};`
 		}catch(err){
 			console.log(err)
 			return{
